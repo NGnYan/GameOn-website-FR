@@ -1,5 +1,5 @@
 function editNav() {
-  var x = document.getElementById("myTopnav");
+  let x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -9,12 +9,12 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
+const modalBtns = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
 // Launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtns?.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // Launch modal form
 function launchModal() {
@@ -22,60 +22,50 @@ function launchModal() {
 }
 
 // Close modal element
-closeBtn.addEventListener("click", closeModal);
+closeBtn?.addEventListener("click", closeModal);
 
 // Close the form modal
 function closeModal() {
   modalbg.style.display = "none";
 }
 
-// Conditions elements
-const firstName = document.querySelector("#first");
-const lastName = document.querySelector("#last");
-const email = document.querySelector("#email");
-const quantity = document.querySelector("#quantity");
-const selectedRadio = document.querySelectorAll('input[name="location"]');
-const selectedTerms = document.querySelector("#checkbox1");
-const selectedNews = document.querySelector("#checkbox2");
-const inscriptionForm = document.querySelector(".btn-submit");
-
 // Conditions for valid form submission
 const isFirstNameCorrect = (firstName) => {
-  return firstName.length >= 2 && firstName != "";
+  return firstName?.length >= 2 && firstName != "";
 };
 
 const isLastNameCorrect = (lastName) => {
-  return lastName.length >= 2 && lastName != "";
+  return lastName?.length >= 2 && lastName != "";
 };
 
 const isEmailCorrect = (email) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
+  return regex?.test(email);
 };
 
 const isQuantityCorrect = (quantity) => {
   return !isNaN(quantity) && Number(quantity) > 0;
 };
 
-const isBtnRadioCorrect = (selectedRadio) => {
-  return selectedRadio.checked;
+const isBtnRadiosCorrect = (selectedRadios) => {
+  return Array.from(selectedRadios).some((radio) => radio.checked);
 };
 
 const isBtnTermsCorrect = (selectedTerms) => {
-  return selectedTerms.checked;
-};
-
-const isBtnNewsCorrect = (selectedNews) => {
-  if (selectedNews) {
-    return true;
-  } else {
-    return true;
-  }
+  return selectedTerms?.checked;
 };
 
 // Form submission
+const inscriptionForm = document.querySelector(".btn-submit");
 
-inscriptionForm.addEventListener("click", (event) => {
+inscriptionForm?.addEventListener("click", (event) => {
+  const firstName = document.querySelector("#first")?.value;
+  const lastName = document.querySelector("#last")?.value;
+  const email = document.querySelector("#email")?.value;
+  const quantity = document.querySelector("#quantity")?.value;
+  const selectedRadios = document.querySelectorAll('input[name="location"]');
+  const selectedTerms = document.querySelector("#checkbox1");
+
   event.preventDefault();
 
   const isFormValid = () => {
@@ -84,16 +74,13 @@ inscriptionForm.addEventListener("click", (event) => {
       isLastNameCorrect(lastName) &&
       isEmailCorrect(email) &&
       isQuantityCorrect(quantity) &&
-      isBtnRadioCorrect(selectedRadio) &&
-      isBtnTermsCorrect(selectedTerms) &&
-      isBtnNewsCorrect(selectedNews)
+      isBtnRadiosCorrect(selectedRadios) &&
+      isBtnTermsCorrect(selectedTerms)
     );
   };
 
-  const conditionsValid = isFormValid();
-
   if (isFormValid()) {
-    console.log("Formulaire valide");
+    document.querySelector(".modal-body").innerHTML = "Bravo !";
   } else {
     console.log("Formulaire invalide");
   }
