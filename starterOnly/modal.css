@@ -197,6 +197,7 @@ label {
   display: inline-block;
   margin-bottom: 11px;
 }
+
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
@@ -228,12 +229,18 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
+
 /* 
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
 } */
+
+#label-quantity {
+  margin-top: 10px;
+}
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -480,6 +487,14 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+/* error message */
+.error-message {
+  font-style: italic;
+  color: red;
+  font-size: 0.6em;
+}
+
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;

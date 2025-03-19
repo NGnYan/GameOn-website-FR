@@ -43,6 +43,13 @@ const isEmailCorrect = (email) => {
   return regex?.test(email);
 };
 
+const isBirthdateCorrect = (birthdate) => {
+  const date = new Date(birthdate);
+  const year = date.getFullYear();
+
+  return !isNaN(date.getTime()) && year > 1900 && year < 2026;
+};
+
 const isQuantityCorrect = (quantity) => {
   return !isNaN(quantity) && Number(quantity) > 0;
 };
@@ -62,6 +69,7 @@ inscriptionForm?.addEventListener("click", (event) => {
   const firstName = document.querySelector("#first")?.value;
   const lastName = document.querySelector("#last")?.value;
   const email = document.querySelector("#email")?.value;
+  const birthdate = document.querySelector("#birthdate").value;
   const quantity = document.querySelector("#quantity")?.value;
   const selectedRadios = document.querySelectorAll('input[name="location"]');
   const selectedTerms = document.querySelector("#checkbox1");
@@ -69,18 +77,68 @@ inscriptionForm?.addEventListener("click", (event) => {
   event.preventDefault();
 
   const isFormValid = () => {
-    return (
-      isFirstNameCorrect(firstName) &&
-      isLastNameCorrect(lastName) &&
-      isEmailCorrect(email) &&
-      isQuantityCorrect(quantity) &&
-      isBtnRadiosCorrect(selectedRadios) &&
-      isBtnTermsCorrect(selectedTerms)
-    );
+    let valid = true;
+
+    if (isFirstNameCorrect(firstName)) {
+      document.querySelector("#firstError").innerHTML = "";
+    } else {
+      document.querySelector("#firstError").innerHTML =
+        "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+      valid = false;
+    }
+
+    if (isLastNameCorrect(lastName)) {
+      document.querySelector("#lastError").innerHTML = "";
+    } else {
+      document.querySelector("#lastError").innerHTML =
+        "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      valid = false;
+    }
+
+    if (isEmailCorrect(email)) {
+      document.querySelector("#emailError").innerHTML = "";
+    } else {
+      document.querySelector("#emailError").innerHTML =
+        "Veuillez entrer une adresse email valide.";
+      valid = false;
+    }
+
+    if (isBirthdateCorrect(birthdate)) {
+      document.querySelector("#birthdateError").innerHTML = "";
+    } else {
+      document.querySelector("#birthdateError").innerHTML =
+        "Vous devez entrer votre date de naissance.";
+      valid = false;
+    }
+
+    if (isQuantityCorrect(quantity)) {
+      document.querySelector("#quantityError").innerHTML = "";
+    } else {
+      document.querySelector("#quantityError").innerHTML =
+        "Veuillez entrer un nombre valide";
+      valid = false;
+    }
+
+    if (isBtnRadiosCorrect(selectedRadios)) {
+      document.querySelector("#locationError").innerHTML = "";
+    } else {
+      document.querySelector("#locationError").innerHTML =
+        "Vous devez choisir un lieu.";
+      valid = false;
+    }
+
+    if (isBtnTermsCorrect(selectedTerms)) {
+      document.querySelector("#checkboxError").innerHTML = "";
+    } else {
+      document.querySelector("#checkboxError").innerHTML =
+        "Vous devez vérifier que vous acceptez les termes et conditions.";
+      valid = false;
+    }
   };
 
   if (isFormValid()) {
-    document.querySelector(".modal-body").innerHTML = "Bravo !";
+    document.querySelector(".modal-body").innerHTML =
+      "Merci ! Votre réservation a été reçue.";
   } else {
     console.log("Formulaire invalide");
   }

@@ -69,6 +69,7 @@
                   name="first"
                   minlength="2"
                 /><br />
+                <span id="firstError" class="error-message"></span>
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br />
@@ -78,6 +79,7 @@
                   id="last"
                   name="last"
                 /><br />
+                <span id="lastError" class="error-message"></span>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br />
@@ -87,6 +89,7 @@
                   id="email"
                   name="email"
                 /><br />
+                <span id="emailError" class="error-message"></span>
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label><br />
@@ -96,9 +99,10 @@
                   id="birthdate"
                   name="birthdate"
                 /><br />
+                <span id="birthdateError" class="error-message"></span>
               </div>
               <div class="formData">
-                <label for="quantity"
+                <label id="label-quantity" for="quantity"
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
                 ><br />
@@ -110,6 +114,8 @@
                   min="0"
                   max="99"
                 />
+                <br />
+                <span id="quantityError" class="error-message"></span>
               </div>
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
@@ -181,6 +187,8 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
+                <br />
+                <span id="locationError" class="error-message"></span>
               </div>
 
               <div class="formData">
@@ -198,9 +206,10 @@
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je Je souhaite être prévenu des prochains évènements.
+                  Je souhaite être prévenu des prochains évènements.
                 </label>
                 <br />
+                <span id="checkboxError" class="error-message"></span>
               </div>
               <input
                 class="btn-submit"
@@ -214,7 +223,7 @@
       </div>
     </main>
     <footer>
-      <p class="copyrights">Copyright 2014 - 2022, GameOn Inc.</p>
+      <p class="copyrights">Copyright 2014 - 2025, GameOn Inc.</p>
     </footer>
     <script src="modal.js"></script>
   </body>
