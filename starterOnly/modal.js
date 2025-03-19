@@ -134,6 +134,7 @@ inscriptionForm?.addEventListener("click", (event) => {
         "Vous devez vérifier que vous acceptez les termes et conditions.";
       valid = false;
     }
+    return true;
   };
 
   if (isFormValid()) {
