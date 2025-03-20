@@ -1,9 +1,9 @@
 function editNav() {
-  let x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  let navbar = document.getElementById("myTopnav");
+  if (navbar.className === "topnav") {
+    navbar.className += " responsive";
   } else {
-    x.className = "topnav";
+    navbar.className = "topnav";
   }
 }
 
@@ -47,7 +47,7 @@ const isBirthdateCorrect = (birthdate) => {
   const date = new Date(birthdate);
   const year = date.getFullYear();
 
-  return !isNaN(date.getTime()) && year > 1900 && year < 2026;
+  return !isNaN(date.getTime()) && year > 1900 && year < 2017;
 };
 
 const isQuantityCorrect = (quantity) => {
@@ -74,7 +74,7 @@ inscriptionForm?.addEventListener("click", (event) => {
   const selectedRadios = document.querySelectorAll('input[name="location"]');
   const selectedTerms = document.querySelector("#checkbox1");
 
-  event.preventDefault();
+  event?.preventDefault();
 
   const isFormValid = () => {
     let valid = true;
@@ -134,7 +134,7 @@ inscriptionForm?.addEventListener("click", (event) => {
         "Vous devez vérifier que vous acceptez les termes et conditions.";
       valid = false;
     }
-    return true;
+    return valid;
   };
 
   if (isFormValid()) {
