@@ -47,7 +47,7 @@ const isBirthdateCorrect = (birthdate) => {
   const date = new Date(birthdate);
   const year = date.getFullYear();
 
-  return !isNaN(date.getTime()) && year > 1900 && year < 2017;
+  return !isNaN(date.getTime()) && year > 1900 && year < 2026;
 };
 
 const isQuantityCorrect = (quantity) => {
