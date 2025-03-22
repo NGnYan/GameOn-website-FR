@@ -140,7 +140,5 @@ inscriptionForm?.addEventListener("click", (event) => {
   if (isFormValid()) {
     document.querySelector(".modal-body").innerHTML =
       "Merci ! Votre réservation a été reçue.";
-  } else {
-    console.log("Formulaire invalide");
   }
 });
