@@ -10,7 +10,6 @@ function editNav() {
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtns = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
 
 // Launch modal event
@@ -46,8 +45,25 @@ const isEmailCorrect = (email) => {
 const isBirthdateCorrect = (birthdate) => {
   const date = new Date(birthdate);
   const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDate();
 
-  return !isNaN(date.getTime()) && year > 1900 && year < 2026;
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+  const currentDay = currentDate.getDate();
+
+  if (isNaN(date.getTime())) return false;
+
+  if (year < 1900 || year > currentYear) return false;
+
+  if (year === currentYear) {
+    if (month > currentMonth || month === currentMonth || day > currentDay) {
+      return false;
+    }
+  }
+
+  return true;
 };
 
 const isQuantityCorrect = (quantity) => {
