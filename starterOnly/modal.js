@@ -154,7 +154,18 @@ inscriptionForm?.addEventListener("click", (event) => {
   };
 
   if (isFormValid()) {
-    document.querySelector(".modal-body").innerHTML =
-      "Merci ! Votre réservation a été reçue.";
+    // add text to confirm registration.
+    const modalBody = document.querySelector(".modal-body");
+    modalBody.innerHTML = "Merci pour votre inscription !";
+    modalBody.classList.add("modal-form-submit");
+
+    // add a button to close the modal
+    const closeButton = document.createElement("button");
+    closeButton.innerHTML = "Fermer";
+    closeButton.classList.add("button");
+
+    closeButton.addEventListener("click", closeModal);
+
+    modalBody.appendChild(closeButton);
   }
 });

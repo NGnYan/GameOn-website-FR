@@ -190,6 +190,22 @@ main {
   margin: 15px auto;
 }
 
+.modal-form-submit {
+  margin: 350px 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-close-btn {
+  width: 300px;
+  padding: 10px 0;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+  border: none;
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;
