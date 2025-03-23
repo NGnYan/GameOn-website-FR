@@ -67,7 +67,7 @@ const isBirthdateCorrect = (birthdate) => {
 };
 
 const isQuantityCorrect = (quantity) => {
-  return !isNaN(quantity) && Number(quantity) > 0;
+  return !isNaN(quantity) && Number(quantity) >= 0;
 };
 
 const isBtnRadiosCorrect = (selectedRadios) => {
@@ -162,7 +162,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     // add a button to close the modal
     const closeButton = document.createElement("button");
     closeButton.innerHTML = "Fermer";
-    closeButton.classList.add("button");
+    closeButton.classList.add("modal-close-btn");
 
     closeButton.addEventListener("click", closeModal);
 
