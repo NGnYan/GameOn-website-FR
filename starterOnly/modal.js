@@ -67,7 +67,7 @@ const isBirthdateCorrect = (birthdate) => {
 };
 
 const isQuantityCorrect = (quantity) => {
-  return !isNaN(quantity) && Number(quantity) >= 0;
+  return !isNaN(quantity) && Number(quantity) > 0;
 };
 
 const isBtnRadiosCorrect = (selectedRadios) => {
