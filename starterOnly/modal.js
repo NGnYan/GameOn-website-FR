@@ -100,6 +100,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     } else {
       document.querySelector("#firstError").innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+      document.querySelector("#first").style.border = "2px solid red";
       valid = false;
     }
 
@@ -108,6 +109,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     } else {
       document.querySelector("#lastError").innerHTML =
         "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+      document.querySelector("#last").style.border = "2px solid red";
       valid = false;
     }
 
@@ -116,6 +118,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     } else {
       document.querySelector("#emailError").innerHTML =
         "Veuillez entrer une adresse email valide.";
+      document.querySelector("#email").style.border = "2px solid red";
       valid = false;
     }
 
@@ -124,6 +127,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     } else {
       document.querySelector("#birthdateError").innerHTML =
         "Vous devez entrer votre date de naissance.";
+      document.querySelector("#birthdate").style.border = "2px solid red";
       valid = false;
     }
 
@@ -132,6 +136,7 @@ inscriptionForm?.addEventListener("click", (event) => {
     } else {
       document.querySelector("#quantityError").innerHTML =
         "Veuillez entrer un nombre valide";
+      document.querySelector("#quantity").style.border = "2px solid red";
       valid = false;
     }
 
